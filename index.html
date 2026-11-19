@@ -1,549 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio of an AI Trainer passionate about accessible technology, application development, swimming, hiking and reading.">
-  <title>Personal Portfolio | AI Trainer</title>
-  <style>
-    :root {
-      --navy: #10243a;
-      --navy-2: #183852;
-      --ink: #1c2b39;
-      --muted: #667789;
-      --paper: #f5f7fa;
-      --white: #ffffff;
-      --accent: #69c4c0;
-      --accent-soft: #e5f5f3;
-      --line: #e4eaf0;
-      --shadow: 0 18px 45px rgba(16, 36, 58, .09);
-      --radius: 22px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siddhant Pathak | Visual Storyteller</title>
+<meta name="description" content="Portfolio of Siddhant Pathak, a Journalism and Mass Communication student exploring photography, screenwriting and cinematography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#101010; --charcoal:#202020; --offwhite:#F5F5F0; --gold:#C5A46D;
+  --muted:rgba(245,245,240,.68); --line:rgba(197,164,109,.28);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--black);color:var(--offwhite);font-family:var(--sans);line-height:1.7;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+svg.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
+/* Nav */
+header.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(16,16,16,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--serif);font-size:1.45rem;font-weight:600;text-decoration:none;letter-spacing:.01em;display:flex;gap:.55rem;align-items:center}
+.brand svg{color:var(--gold)}
+.nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.95rem;transition:color .25s;padding:.4rem 0;border-bottom:1px solid transparent}
+.nav ul a:hover{color:var(--gold);border-color:var(--gold)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--offwhite);border-radius:10px;padding:.45rem .6rem;cursor:pointer}
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,.92);
-      border-bottom: 1px solid rgba(228,234,240,.9);
-      backdrop-filter: blur(14px);
-    }
-    .nav-wrap {
-      width: min(1120px, calc(100% - 40px));
-      min-height: 74px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--navy);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      font-size: 1.08rem;
-    }
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      color: var(--navy);
-      background: var(--accent);
-      font-size: .9rem;
-    }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a {
-      color: #526476;
-      font-size: .9rem;
-      font-weight: 650;
-      transition: color .2s ease;
-    }
-    .nav-links a:hover, .nav-links a:focus-visible { color: #168b86; }
-    .menu-toggle {
-      display: none;
-      border: 1px solid var(--line);
-      background: white;
-      color: var(--navy);
-      border-radius: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
+/* Hero */
+.hero{min-height:100svh;display:grid;align-items:center;position:relative;overflow:hidden;padding:7rem 0 5rem;
+  background:
+   radial-gradient(60% 55% at 78% 38%,rgba(197,164,109,.26),transparent 70%),
+   radial-gradient(40% 40% at 15% 85%,rgba(197,164,109,.08),transparent 70%),
+   linear-gradient(180deg,#171717,var(--black))}
+.hero::before,.hero::after{content:"";position:absolute;left:0;right:0;height:9vh;background:#000;z-index:1}
+.hero::before{top:0}.hero::after{bottom:0}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.hero h1{font-size:clamp(2.9rem,7vw,5.6rem);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero .lede{margin-top:1.6rem;max-width:34rem;color:var(--muted);font-size:1.15rem}
+.btns{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:999px;font:600 .98rem var(--sans);text-decoration:none;cursor:pointer;border:1px solid var(--gold);transition:background .25s,color .25s,transform .25s}
+.btn.solid{background:var(--gold);color:var(--black)}
+.btn.solid:hover{background:var(--offwhite);border-color:var(--offwhite)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:rgba(197,164,109,.12)}
 
-    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-      color: white;
-      padding: 92px 0 96px;
-    }
-    .hero::before, .hero::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(105,196,192,.2);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::before { width: 520px; height: 520px; right: -170px; top: -270px; }
-    .hero::after { width: 360px; height: 360px; right: -90px; top: -190px; }
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      align-items: center;
-      gap: 70px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
-    h1 {
-      max-width: 720px;
-      margin: 18px 0 20px;
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 1.04;
-      letter-spacing: -.065em;
-    }
-    h1 span { color: var(--accent); }
-    .hero-copy {
-      max-width: 650px;
-      color: #d1dce6;
-      font-size: 1.08rem;
-      margin: 0 0 30px;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-      min-height: 48px;
-      padding: 0 21px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-weight: 750;
-      font-size: .92rem;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent); color: var(--navy); box-shadow: 0 9px 24px rgba(105,196,192,.2); }
-    .btn-primary:hover { background: #83d5d0; }
-    .btn-outline { border-color: rgba(255,255,255,.35); color: white; }
-    .btn-outline:hover { background: rgba(255,255,255,.08); }
+/* Viewfinder portrait */
+.finder{position:relative;aspect-ratio:4/5;max-width:380px;justify-self:end;width:100%;border-radius:6px;
+  background:linear-gradient(160deg,#2a2a2a,#161616);box-shadow:0 30px 70px rgba(0,0,0,.55);display:grid;place-items:center;text-align:center;padding:2rem;color:var(--muted)}
+.finder::before{content:"";position:absolute;inset:0;border-radius:6px;background:
+  linear-gradient(var(--line),var(--line)) 33.3% 0/1px 100% no-repeat,
+  linear-gradient(var(--line),var(--line)) 66.6% 0/1px 100% no-repeat,
+  linear-gradient(var(--line),var(--line)) 0 33.3%/100% 1px no-repeat,
+  linear-gradient(var(--line),var(--line)) 0 66.6%/100% 1px no-repeat;opacity:.55}
+.finder i{position:absolute;width:30px;height:30px;border:2px solid var(--gold)}
+.finder i:nth-child(1){top:-10px;left:-10px;border-right:0;border-bottom:0}
+.finder i:nth-child(2){top:-10px;right:-10px;border-left:0;border-bottom:0}
+.finder i:nth-child(3){bottom:-10px;left:-10px;border-right:0;border-top:0}
+.finder i:nth-child(4){bottom:-10px;right:-10px;border-left:0;border-top:0}
+.finder svg{width:56px;height:56px;color:var(--gold);margin:0 auto .8rem;stroke-width:1.1;display:block}
+.finder span{position:relative;font-size:.95rem}
 
-    .profile-card {
-      justify-self: end;
-      width: min(100%, 300px);
-      padding: 14px;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 28px;
-      background: rgba(255,255,255,.07);
-      box-shadow: 0 25px 60px rgba(0,0,0,.18);
-      transform: rotate(2deg);
-    }
-    .profile-placeholder {
-      min-height: 330px;
-      border-radius: 19px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 25px;
-      color: #d8e8eb;
-      background:
-        radial-gradient(circle at 50% 30%, rgba(105,196,192,.28), transparent 38%),
-        linear-gradient(145deg, #294d65, #142c43 70%);
-    }
-    .profile-placeholder .avatar-icon { font-size: 4rem; margin-bottom: 12px; }
-    .profile-placeholder strong { display: block; color: white; font-size: 1.05rem; }
-    .profile-placeholder small { display: block; margin-top: 5px; color: #b8cbd6; }
+/* Sections */
+section.block{padding:7rem 0;position:relative}
+section.alt{background:var(--charcoal)}
+.sec-head{max-width:40rem;margin-bottom:3.2rem}
+.sec-head h2{font-size:clamp(2.2rem,4.6vw,3.4rem)}
+.sec-head p{margin-top:1rem;color:var(--muted)}
+.rule{display:block;width:64px;height:2px;background:var(--gold);margin:1.3rem 0 0}
 
-    section { padding: 88px 0; }
-    .section-heading { max-width: 660px; margin-bottom: 38px; }
-    .section-kicker {
-      color: #168b86;
-      font-size: .76rem;
-      font-weight: 850;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-    h2 {
-      color: var(--navy);
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -.055em;
-      line-height: 1.12;
-      margin: 10px 0 13px;
-    }
-    .section-heading p { color: var(--muted); margin: 0; font-size: 1.02rem; }
-    .intro-detail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-    .intro-panel, .value-panel {
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: white;
-      box-shadow: var(--shadow);
-    }
-    .intro-panel p { color: var(--muted); margin: 0 0 15px; }
-    .intro-panel p:last-child { margin-bottom: 0; }
-    .value-panel { background: var(--accent-soft); border-color: transparent; }
-    .value-panel h3 { margin: 0 0 12px; color: var(--navy); font-size: 1.2rem; }
-    .value-panel p { margin: 0; color: #47636b; }
-    .value-list { display: grid; gap: 13px; margin-top: 22px; }
-    .value-item { display: flex; gap: 12px; align-items: flex-start; color: #34515a; font-weight: 650; }
-    .check {
-      display: grid; place-items: center; flex: 0 0 24px; height: 24px;
-      border-radius: 50%; color: var(--navy); background: var(--accent); font-size: .8rem;
-    }
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p+p{margin-top:1.1rem}
+.about p{color:var(--muted)}
+.about p:first-child{color:var(--offwhite);font-family:var(--serif);font-size:1.5rem;line-height:1.4}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:1rem;align-content:start}
+.facts li{display:flex;gap:1rem;padding:1.1rem 1.3rem;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.facts svg{color:var(--gold);flex:none;margin-top:.2rem}
+.facts b{display:block;font-weight:600}
+.facts small{color:var(--muted);font-size:.95rem}
 
-    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-    .interest-section { background: #edf2f6; }
-    .feature-card {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: white;
-      box-shadow: var(--shadow);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 24px 55px rgba(16,36,58,.13); }
-    .card-visual {
-      min-height: 170px;
-      display: flex;
-      align-items: flex-end;
-      padding: 24px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #1b5269, #18334d);
-    }
-    .card-visual::after {
-      content: "";
-      position: absolute;
-      width: 190px; height: 190px;
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 50%;
-      right: -35px; top: -85px;
-      box-shadow: 0 0 0 25px rgba(255,255,255,.04), 0 0 0 52px rgba(255,255,255,.035);
-    }
-    .card-visual .symbol { font-size: 2.5rem; position: relative; z-index: 1; }
-    .card-visual h3 { position: relative; z-index: 1; margin: 0 0 0 14px; font-size: 1.35rem; }
-    .visual-app { background: linear-gradient(135deg, #276b70, #183c54); }
-    .visual-hike { background: linear-gradient(135deg, #477b61, #1d4b4c); }
-    .visual-books { background: linear-gradient(135deg, #75618b, #293d5b); }
-    .card-content { padding: 25px 27px 28px; }
-    .card-content p { color: var(--muted); margin: 0; }
-    .card-tag {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 6px 11px;
-      border-radius: 999px;
-      color: #27716e;
-      background: var(--accent-soft);
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .02em;
-    }
+/* Cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.card{background:var(--charcoal);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.card .art{aspect-ratio:16/10;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.card .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(16,16,16,.65))}
+.card .art svg{width:76px;height:76px;stroke-width:1;color:var(--gold);position:relative;z-index:1}
+.a1{background:radial-gradient(circle at 30% 30%,#4a3f2b,#161616 70%)}
+.a2{background:linear-gradient(135deg,#1b1b1b,#2e2a22)}
+.a3{background:radial-gradient(circle at 70% 70%,#3b3326,#141414 70%)}
+.card .body{padding:1.6rem 1.6rem 1.9rem}
+.card h3{font-size:1.8rem;margin-bottom:.7rem}
+.card p{color:var(--muted);font-size:1rem}
 
-    .contact-section { background: var(--navy); color: white; }
-    .contact-section h2 { color: white; }
-    .contact-section .section-heading p { color: #c0ceda; }
-    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; align-items: start; }
-    .contact-note { color: #c0ceda; max-width: 390px; }
-    .contact-detail { display: flex; align-items: center; gap: 12px; margin-top: 25px; color: #e4edf2; font-weight: 650; }
-    .contact-detail span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: rgba(105,196,192,.16); color: var(--accent); }
-    .contact-form {
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.07);
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .field { margin-bottom: 16px; }
-    label { display: block; margin-bottom: 7px; color: #e7eff4; font-size: .86rem; font-weight: 700; }
-    input, textarea {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 11px;
-      outline: none;
-      color: white;
-      background: rgba(7,22,37,.35);
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-    input::placeholder, textarea::placeholder { color: #9aabba; }
-    input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(105,196,192,.15); }
-    textarea { min-height: 135px; resize: vertical; }
-    .form-submit { border: 0; width: 100%; }
-    .form-note { color: #aebfcb; font-size: .78rem; margin: 13px 0 0; }
+/* Interests */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem}
+.panel{border-radius:var(--radius);border:1px solid var(--line);background:var(--black);overflow:hidden;transition:border-color .35s,transform .35s;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.panel:hover{border-color:var(--gold);transform:translateY(-6px)}
+.panel .frame{aspect-ratio:2.39/1;position:relative;background:linear-gradient(110deg,#2b2519,#101010 55%,#3a2f1c);overflow:hidden}
+.panel .frame::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(rgba(197,164,109,.35),rgba(197,164,109,.35)) 33.3% 0/1px 100% no-repeat,
+  linear-gradient(rgba(197,164,109,.35),rgba(197,164,109,.35)) 66.6% 0/1px 100% no-repeat,
+  linear-gradient(rgba(197,164,109,.35),rgba(197,164,109,.35)) 0 33.3%/100% 1px no-repeat,
+  linear-gradient(rgba(197,164,109,.35),rgba(197,164,109,.35)) 0 66.6%/100% 1px no-repeat}
+.panel .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(197,164,109,.2),0 0 40px 10px rgba(197,164,109,.35);left:66.6%;top:33.3%;transform:translate(-50%,-50%)}
+.panel .strip{position:absolute;inset:0;display:flex;gap:10px;padding:14% 6%;align-items:stretch}
+.panel .strip span{flex:1;border:1.5px solid var(--gold);border-radius:4px;background:linear-gradient(160deg,rgba(197,164,109,.2),rgba(255,255,255,.02))}
+.panel .strip span:nth-child(2){background:linear-gradient(160deg,rgba(197,164,109,.45),rgba(255,255,255,.02))}
+.panel .strip span:nth-child(4){background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.02))}
+.panel .body{padding:1.8rem 2rem 2.2rem}
+.panel h3{font-size:2rem;margin-bottom:.8rem}
+.panel p{color:var(--muted)}
+.panel p+p{margin-top:.9rem}
 
-    footer { padding: 23px 20px; text-align: center; color: #9aabba; background: #0b1b2c; font-size: .83rem; }
-    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+/* Contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:start}
+.contact .sec-head{margin:0}
+form{display:grid;gap:1.1rem;background:var(--charcoal);padding:2rem;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+label{display:grid;gap:.45rem;font-size:.95rem;font-weight:500}
+input,textarea{font:inherit;color:var(--offwhite);background:var(--black);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.8rem 1rem;transition:border-color .25s,box-shadow .25s;width:100%}
+input::placeholder,textarea::placeholder{color:rgba(245,245,240,.35)}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,164,109,.2)}
+textarea{min-height:150px;resize:vertical}
+.note{font-size:.9rem;color:var(--muted);min-height:1.4em}
+.note.ok{color:var(--gold)}
 
-    @media (max-width: 760px) {
-      .nav-wrap { min-height: 68px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px; left: 0; right: 0;
-        padding: 18px 22px 22px;
-        flex-direction: column; align-items: stretch; gap: 16px;
-        background: white; border-bottom: 1px solid var(--line);
-      }
-      .nav-links.open { display: flex; }
-      .hero { padding: 68px 0 72px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .profile-card { justify-self: start; width: min(100%, 260px); }
-      .profile-placeholder { min-height: 250px; }
-      section { padding: 68px 0; }
-      .intro-detail, .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-      .cards-grid { grid-template-columns: 1fr; }
-      .contact-grid { gap: 30px; }
-    }
-    @media (max-width: 480px) {
-      .container, .nav-wrap { width: min(100% - 30px, 1120px); }
-      h1 { font-size: 2.75rem; }
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-      .contact-form, .intro-panel, .value-panel { padding: 22px; }
-      .card-content { padding: 22px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-    }
-  </style>
+/* Footer */
+footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem;text-align:center;color:var(--muted);font-size:.95rem;position:relative}
+footer::before{content:"";display:block;height:14px;margin:0 auto 2rem;width:min(520px,80%);background:repeating-linear-gradient(90deg,var(--gold) 0 10px,transparent 10px 24px);opacity:.45;border-radius:3px}
+footer .brand{justify-content:center;margin-bottom:.6rem;color:var(--offwhite)}
+footer a{color:var(--gold);text-decoration:none}
+
+/* One entrance moment: hero */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero .wrap>*{animation:rise .9s ease both}
+.hero .wrap>*:last-child{animation-delay:.2s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .finder{justify-self:start;max-width:300px}
+  .grid3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .menu-btn{display:block}
+  .nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--black);border-bottom:1px solid var(--line);display:none;padding:.5rem 1.25rem 1rem}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:.8rem 0}
+  .grid3,.grid2{grid-template-columns:1fr}
+  section.block{padding:5rem 0}
+}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="#intro" aria-label="Portfolio home">
-        <span class="brand-mark">AI</span>
-        <span>Personal Portfolio</span>
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#intro">Introduction</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#interests">Interests</a>
-        <a href="#contact">Contact</a>
-      </div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M14.3 8 20 7.8M9.7 8 12 3M7.2 12 4 7.2M9.7 16 4 16.2M14.3 16 12 21M16.8 12 20 16.8"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></symbol>
+  <symbol id="i-script" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 11h7M9 14h7M9 17h4"/></symbol>
+  <symbol id="i-clap" viewBox="0 0 24 24"><path d="M3 10h18v10H3zM3 10l1.5-5 15 -2.2L21 8"/><path d="M8 5.8l2 3.2M13 5l2 3.2"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19z"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg class="ic"><use href="#i-aperture"/></svg>Siddhant Pathak</a>
+    <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="intro">
-      <div class="container hero-grid">
+<main id="top">
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap">
+      <div>
+        <h1>Stories worth <em>framing</em>, one shot at a time.</h1>
+        <p class="lede">I’m Siddhant Pathak, a Journalism and Mass Communication student who studies how stories travel, and wants to learn how to make them move.</p>
+        <div class="btns">
+          <a class="btn solid" href="#introduction">Meet the storyteller</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="finder" role="img" aria-label="Profile photograph placeholder">
+        <i></i><i></i><i></i><i></i>
         <div>
-          <div class="eyebrow">Hello, welcome to my portfolio</div>
-          <h1>Making technology <span>easier to use.</span></h1>
-          <p class="hero-copy">
-            I am currently working as an <strong>AI Trainer</strong>, teaching low-code and no-code tools to college graduates.
-            I help learners explore emerging technologies, experiment with AI-powered platforms, and turn ideas into useful digital applications.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline" href="#hobbies">Explore my page</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><use href="#i-camera"/></svg>
+          <span>Your profile photograph goes here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="introduction">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Introduction</h2><span class="rule"></span>
+      </div>
+      <div class="about">
+        <div>
+          <p>I am currently a student at KR Mangalam University, pursuing a Bachelor’s degree in Journalism and Mass Communication.</p>
+          <p>My curiosity lives where media, visual storytelling and creative communication meet. I’m drawn to the many ways a story can be told, in a photograph, a news report, a screenplay or a film, and to what each medium makes possible.</p>
+          <p>Studying journalism and mass communication helps me see how storytelling, society, creativity and the media industry shape one another. Filmmaking is where that curiosity runs deepest: following a story from its first idea to the moment it becomes a meaningful visual experience.</p>
+        </div>
+        <ul class="facts">
+          <li><svg class="ic"><use href="#i-book"/></svg><div><b>Student of Journalism and Mass Communication</b><small>KR Mangalam University</small></div></li>
+          <li><svg class="ic"><use href="#i-camera"/></svg><div><b>Visual storytelling</b><small>Photography and cinematography</small></div></li>
+          <li><svg class="ic"><use href="#i-pen"/></svg><div><b>Writing for the screen</b><small>Characters, conflict and dialogue</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="hobbies">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Hobbies</h2><span class="rule"></span>
+        <p>The things I do for the joy of it, and that quietly teach me how stories work.</p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <div class="art a1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><use href="#i-camera"/></svg></div>
+          <div class="body">
+            <h3>Photography</h3>
+            <p>Photography is one of my favourite creative pursuits. I enjoy capturing moments, observing everyday surroundings and finding stories within ordinary scenes. It lets me experiment with composition, lighting, perspective and visual aesthetics, and it has taught me how images can carry emotion and story without a single word.</p>
           </div>
-        </div>
-        <div class="profile-card" aria-label="Profile image placeholder">
-          <div class="profile-placeholder">
-            <div>
-              <div class="avatar-icon" aria-hidden="true">◎</div>
-              <strong>Your Profile Photo</strong>
-              <small>Replace this placeholder with your image</small>
-            </div>
+        </article>
+        <article class="card">
+          <div class="art a2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><use href="#i-script"/></svg></div>
+          <div class="body">
+            <h3>Screenplay Writing</h3>
+            <p>I enjoy exploring screenplay writing and developing stories for the screen: creating characters, constructing narratives, building conflict and writing meaningful dialogue. I’m especially drawn to psychological themes, human emotion, character development and unconventional narratives.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">01 / Introduction</div>
-          <h2>Technology should be accessible to everyone.</h2>
-          <p>My work is centred on helping people feel confident using technology and discovering what they can create with it.</p>
-        </div>
-        <div class="intro-detail">
-          <article class="intro-panel">
-            <p>As an AI Trainer, I introduce college graduates to practical ways of working with low-code and no-code tools. These platforms make it possible to design workflows and build applications without needing extensive programming experience.</p>
-            <p>Through demonstrations and hands-on learning, I encourage students to explore AI-powered tools, solve everyday problems, and develop digital skills they can apply in their careers.</p>
-            <p>I believe the best technology education is practical, approachable, and focused on helping people turn curiosity into capability.</p>
-          </article>
-          <aside class="value-panel">
-            <h3>What I aim to encourage</h3>
-            <p>Learning by doing, asking better questions, and using technology creatively.</p>
-            <div class="value-list">
-              <div class="value-item"><span class="check">✓</span><span>Confidence with emerging technologies</span></div>
-              <div class="value-item"><span class="check">✓</span><span>Practical digital and problem-solving skills</span></div>
-              <div class="value-item"><span class="check">✓</span><span>Creative thinking through application building</span></div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="hobbies">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">02 / Hobbies</div>
-          <h2>Things I enjoy doing.</h2>
-          <p>My hobbies give me a chance to recharge, stay curious, and keep learning beyond my professional work.</p>
-        </div>
-        <div class="cards-grid">
-          <article class="feature-card">
-            <div class="card-visual">
-              <span class="symbol" aria-hidden="true">〰</span>
-              <h3>Swimming</h3>
-            </div>
-            <div class="card-content">
-              <p>Swimming is one of my favourite ways to stay active and refresh my mind. It helps me build endurance, practise discipline, and develop a steady rhythm. It also gives me a healthy break from screens and daily responsibilities.</p>
-              <span class="card-tag">Well-being · Discipline</span>
-            </div>
-          </article>
-          <article class="feature-card">
-            <div class="card-visual visual-app">
-              <span class="symbol" aria-hidden="true">▣</span>
-              <h3>Application Development</h3>
-            </div>
-            <div class="card-content">
-              <p>I enjoy experimenting with tools and technologies to turn creative ideas into practical digital solutions. Exploring application development—especially through low-code and no-code platforms—lets me build, test, and improve ideas in an accessible way.</p>
-              <span class="card-tag">Creativity · Technology</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="interest-section" id="interests">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">03 / Interests</div>
-          <h2>Curiosity beyond the everyday.</h2>
-          <p>These interests help me explore new perspectives, appreciate the world around me, and keep growing as a person.</p>
-        </div>
-        <div class="cards-grid">
-          <article class="feature-card">
-            <div class="card-visual visual-hike">
-              <span class="symbol" aria-hidden="true">△</span>
-              <h3>Hiking</h3>
-            </div>
-            <div class="card-content">
-              <p>Hiking appeals to my sense of exploration. Spending time outdoors, discovering unfamiliar paths, and taking in new surroundings encourages patience, resilience, and curiosity. It is a reminder to slow down and appreciate the journey as much as the destination.</p>
-              <span class="card-tag">Nature · Exploration</span>
-            </div>
-          </article>
-          <article class="feature-card">
-            <div class="card-visual visual-books">
-              <span class="symbol" aria-hidden="true">▤</span>
-              <h3>Book Reading</h3>
-            </div>
-            <div class="card-content">
-              <p>Reading gives me the opportunity to step into different worlds and understand different points of view. It expands my knowledge and imagination, introduces me to new ideas, and supports my personal and professional development.</p>
-              <span class="card-tag">Knowledge · Imagination</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div>
-            <div class="section-heading">
-              <div class="section-kicker">04 / Visitor contact</div>
-              <h2>Let's start a conversation.</h2>
-              <p>Have a question, an idea, or an opportunity to collaborate? Feel free to get in touch. I'd be happy to connect!</p>
-            </div>
-            <p class="contact-note">Use the form to write a message. This portfolio is a static webpage, so the form is a visual front-end demonstration and will not send or store messages.</p>
-            <div class="contact-detail"><span aria-hidden="true">✉</span><span>Open to questions and collaboration</span></div>
+        </article>
+        <article class="card">
+          <div class="art a3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clap"/></svg></div>
+          <div class="body">
+            <h3>Watching Films and Shows</h3>
+            <p>Watching films and television is more than entertainment for me. I explore different genres, storytelling techniques, cinematic styles, performances and directorial approaches. Every film is a chance to see how a director communicates ideas and emotions through visual storytelling.</p>
           </div>
-
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="field">
-                <label for="fullName">Full Name</label>
-                <input id="fullName" name="fullName" type="text" placeholder="Your name" required>
-              </div>
-              <div class="field">
-                <label for="email">Email Address</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required>
-              </div>
-            </div>
-            <div class="field">
-              <label for="subject">Subject</label>
-              <input id="subject" name="subject" type="text" placeholder="What would you like to discuss?" required>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-            </div>
-            <button class="btn btn-primary form-submit" type="submit">Send Message <span aria-hidden="true">↗</span></button>
-            <p class="form-note" id="formNote" role="status">Demo form only — no message will be transmitted.</p>
-          </form>
-        </div>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <p>© <span id="year"></span> Personal Portfolio. Designed with curiosity and a love for learning.</p>
-  </footer>
+  <section class="block" id="interests">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Interests</h2><span class="rule"></span>
+        <p>Where my curiosity is heading as a student, and as a future filmmaker.</p>
+      </div>
+      <div class="grid2">
+        <article class="panel">
+          <div class="frame"><div class="strip" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="body">
+            <h3>Studying Films</h3>
+            <p>I have a deep interest in studying cinema beyond its entertainment value. I enjoy analysing narrative structure, symbolism, character arcs, editing patterns, sound design, colour grading and directorial choices.</p>
+            <p>I’m particularly interested in how filmmakers use cinematic technique to communicate complex human emotions, philosophical ideas and social realities.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="frame"><span class="dot" aria-hidden="true"></span></div>
+          <div class="body">
+            <h3>Cinematography</h3>
+            <p>Cinematography is one of my strongest creative interests. I’m fascinated by how camera movement, framing, lighting, composition, colour and angle shape the way an audience perceives a story.</p>
+            <p>I enjoy exploring the visual language of cinema, and understanding how cinematographers turn written narratives into compelling visual experiences.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+  <section class="block alt" id="contact">
+    <div class="wrap contact">
+      <div class="sec-head">
+        <h2>Visitor Contact</h2><span class="rule"></span>
+        <p>Have an interesting project, a creative idea, or simply want to discuss cinema and storytelling? Feel free to reach out. I’d love to connect and exchange ideas.</p>
+      </div>
+      <form id="contact-form" novalidate>
+        <label>Full Name<input type="text" name="name" autocomplete="name" placeholder="Your full name" required></label>
+        <label>Email Address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label>Subject<input type="text" name="subject" placeholder="What is this about?" required></label>
+        <label>Message<textarea name="message" placeholder="Tell me about your idea or project" required></textarea></label>
+        <button class="btn solid" type="submit" style="justify-self:start">Send Message</button>
+        <p class="note" id="note" role="status">This is a front-end demo form. Messages are not sent or stored.</p>
+      </form>
+    </div>
+  </section>
+</main>
 
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
+<footer>
+  <div class="wrap">
+    <div class="brand"><svg class="ic" style="color:var(--gold)"><use href="#i-aperture"/></svg>Siddhant Pathak</div>
+    <p>Student of Journalism and Mass Communication, KR Mangalam University.</p>
+    <p style="margin-top:.5rem">Photography · Screenwriting · Cinema &nbsp;|&nbsp; <a href="#top">Back to top</a></p>
+    <p style="margin-top:1rem;font-size:.85rem;opacity:.7">&copy; <span id="yr">2026</span> Siddhant Pathak. All rights reserved.</p>
+  </div>
+</footer>
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.getElementById('contactForm').addEventListener('submit', event => {
-      event.preventDefault();
-      document.getElementById('formNote').textContent =
-        'Thanks for filling out the form. This is a static demo, so your message has not been sent.';
-    });
-  </script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }});
+  var form = document.getElementById('contact-form'), note = document.getElementById('note');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ note.className = 'note'; note.textContent = 'Please fill in every field with a valid email address.'; form.reportValidity(); return; }
+    note.className = 'note ok';
+    note.textContent = 'Thanks for trying the form. This is a static demo, so nothing was sent or saved.';
+    form.reset();
+  });
+</script>
 </body>
 </html>
